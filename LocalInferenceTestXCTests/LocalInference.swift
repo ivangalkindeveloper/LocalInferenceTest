@@ -3,8 +3,8 @@ import FoundationModels
 import MLXLMCommon
 import MLX
 
-protocol LocalInferenceTestProtocol {
-    func simple(
+protocol LocalInferenceProtocol {
+    func respond(
         prompt: String
     ) async throws -> String
     
@@ -14,9 +14,9 @@ protocol LocalInferenceTestProtocol {
 }
 
 
-// MARK: - FoundationModels
+// MARK: FoundationModels -
 @available(iOS 26.0, *)
-final class LocalInferenceTestFoudationModels: LocalInferenceTestProtocol {
+final class LocalInferenceFoudationModels: LocalInferenceProtocol {
     @FoundationModels.Generable
     struct Response {
         @FoundationModels.Guide(description: "")
@@ -43,12 +43,21 @@ final class LocalInferenceTestFoudationModels: LocalInferenceTestProtocol {
         case female
     }
     
-    func simple(
+    func respond(
         prompt: String
     ) async throws -> String {
         let session = LanguageModelSession()
         
-        let response = try await session.respond(to: prompt)
+        let response = try await Performer().run(
+            "FoundationModels",
+            "Respond",
+            {
+               try await session.respond(to: prompt)
+            },
+            {
+                $0.content
+            }
+        )
         
         return response.content
     }
@@ -60,9 +69,18 @@ final class LocalInferenceTestFoudationModels: LocalInferenceTestProtocol {
             instructions: NERConfig.role
         )
         
-        let response = try await session.respond(
-            to: Prompt.simple,
-            generating: Response.self
+        let response = try await Performer().run(
+            "FoundationModels",
+            "NER",
+            {
+               try await session.respond(
+                   to: speech,
+                   generating: Response.self
+               )
+            },
+            {
+                "\($0.content)"
+            }
         )
         
         return NERResponse.fromFoudationModels(
@@ -72,24 +90,37 @@ final class LocalInferenceTestFoudationModels: LocalInferenceTestProtocol {
 }
 
 
-// MARK: - MLX
-final class LocalInferenceTestMLX: LocalInferenceTestProtocol {
+// MARK: MLX -
+final class LocalInferenceMLX: LocalInferenceProtocol {
+    let modelId: String
     let model: MLXLMCommon.ModelContext
     
     init(
         modelId: String
     ) async throws {
+        self.modelId = modelId
         self.model = try await MLXLMCommon.loadModel(
             id: modelId
         )
     }
     
-    func simple(
+    func respond(
         prompt: String
     ) async throws -> String {
         let session = MLXLMCommon.ChatSession(model)
         
-        let response = try await session.respond(to: prompt)
+        let response = try await Performer().run(
+            modelId,
+            "Respond",
+            {
+                try await session.respond(to: prompt)
+            },
+            {
+                $0
+            }
+        )
+        
+        session.clear()
         
         return response
     }
@@ -105,8 +136,19 @@ final class LocalInferenceTestMLX: LocalInferenceTestProtocol {
             \(NERConfig.jsonFormat)
             """,
         )
-
-        let response = try await session.respond(to: speech,)
+        
+        let response = try await Performer().run(
+            modelId,
+            "NER",
+            {
+                try await session.respond(to: speech)
+            },
+            {
+                $0
+            }
+        )
+        
+        session.clear()
         
         let data = Data(response.utf8)
         let decoded = try JSONDecoder().decode(NERResponse.self, from: data)

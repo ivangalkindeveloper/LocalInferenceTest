@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		778E8DBB2F0570C800D11D85 /* PBXContainerItemProxy */ = {
+		771E76ED2F0867CC00D8EB3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 778E8DA52F0570C700D11D85 /* Project object */;
 			proxyType = 1;
@@ -24,24 +24,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		771E76E92F0867CC00D8EB3A /* LocalInferenceTestXCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalInferenceTestXCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		778E8DAD2F0570C700D11D85 /* LocalInferenceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalInferenceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		778E8DBA2F0570C800D11D85 /* LocalInferenceTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalInferenceTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		771E76EA2F0867CC00D8EB3A /* LocalInferenceTestXCTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LocalInferenceTestXCTests;
+			sourceTree = "<group>";
+		};
 		778E8DAF2F0570C700D11D85 /* LocalInferenceTest */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LocalInferenceTest;
 			sourceTree = "<group>";
 		};
-		778E8DBD2F0570C800D11D85 /* LocalInferenceTestTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LocalInferenceTestTests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		771E76E62F0867CC00D8EB3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		778E8DAA2F0570C700D11D85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,13 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		778E8DB72F0570C800D11D85 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				778E8DAF2F0570C700D11D85 /* LocalInferenceTest */,
-				778E8DBD2F0570C800D11D85 /* LocalInferenceTestTests */,
+				771E76EA2F0867CC00D8EB3A /* LocalInferenceTestXCTests */,
 				778E8DAE2F0570C700D11D85 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				778E8DAD2F0570C700D11D85 /* LocalInferenceTest.app */,
-				778E8DBA2F0570C800D11D85 /* LocalInferenceTestTests.xctest */,
+				771E76E92F0867CC00D8EB3A /* LocalInferenceTestXCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +84,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		771E76E82F0867CC00D8EB3A /* LocalInferenceTestXCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 771E76EF2F0867CC00D8EB3A /* Build configuration list for PBXNativeTarget "LocalInferenceTestXCTests" */;
+			buildPhases = (
+				771E76E52F0867CC00D8EB3A /* Sources */,
+				771E76E62F0867CC00D8EB3A /* Frameworks */,
+				771E76E72F0867CC00D8EB3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				771E76EE2F0867CC00D8EB3A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				771E76EA2F0867CC00D8EB3A /* LocalInferenceTestXCTests */,
+			);
+			name = LocalInferenceTestXCTests;
+			packageProductDependencies = (
+			);
+			productName = LocalInferenceTestXCTests;
+			productReference = 771E76E92F0867CC00D8EB3A /* LocalInferenceTestXCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		778E8DAC2F0570C700D11D85 /* LocalInferenceTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 778E8DCE2F0570C800D11D85 /* Build configuration list for PBXNativeTarget "LocalInferenceTest" */;
@@ -110,29 +133,6 @@
 			productReference = 778E8DAD2F0570C700D11D85 /* LocalInferenceTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		778E8DB92F0570C800D11D85 /* LocalInferenceTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 778E8DD12F0570C800D11D85 /* Build configuration list for PBXNativeTarget "LocalInferenceTestTests" */;
-			buildPhases = (
-				778E8DB62F0570C800D11D85 /* Sources */,
-				778E8DB72F0570C800D11D85 /* Frameworks */,
-				778E8DB82F0570C800D11D85 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				778E8DBC2F0570C800D11D85 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				778E8DBD2F0570C800D11D85 /* LocalInferenceTestTests */,
-			);
-			name = LocalInferenceTestTests;
-			packageProductDependencies = (
-			);
-			productName = LocalInferenceTestTests;
-			productReference = 778E8DBA2F0570C800D11D85 /* LocalInferenceTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -143,12 +143,12 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
-					778E8DAC2F0570C700D11D85 = {
-						CreatedOnToolsVersion = 26.2;
-					};
-					778E8DB92F0570C800D11D85 = {
+					771E76E82F0867CC00D8EB3A = {
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = 778E8DAC2F0570C700D11D85;
+					};
+					778E8DAC2F0570C700D11D85 = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -170,20 +170,20 @@
 			projectRoot = "";
 			targets = (
 				778E8DAC2F0570C700D11D85 /* LocalInferenceTest */,
-				778E8DB92F0570C800D11D85 /* LocalInferenceTestTests */,
+				771E76E82F0867CC00D8EB3A /* LocalInferenceTestXCTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		778E8DAB2F0570C700D11D85 /* Resources */ = {
+		771E76E72F0867CC00D8EB3A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		778E8DB82F0570C800D11D85 /* Resources */ = {
+		778E8DAB2F0570C700D11D85 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -193,14 +193,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		778E8DA92F0570C700D11D85 /* Sources */ = {
+		771E76E52F0867CC00D8EB3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		778E8DB62F0570C800D11D85 /* Sources */ = {
+		778E8DA92F0570C700D11D85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -210,14 +210,56 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		778E8DBC2F0570C800D11D85 /* PBXTargetDependency */ = {
+		771E76EE2F0867CC00D8EB3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 778E8DAC2F0570C700D11D85 /* LocalInferenceTest */;
-			targetProxy = 778E8DBB2F0570C800D11D85 /* PBXContainerItemProxy */;
+			targetProxy = 771E76ED2F0867CC00D8EB3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		771E76F02F0867CC00D8EB3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5K5WXXWFJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ivangalkindev.LocalInferenceTestXCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalInferenceTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LocalInferenceTest";
+			};
+			name = Debug;
+		};
+		771E76F12F0867CC00D8EB3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5K5WXXWFJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ivangalkindev.LocalInferenceTestXCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalInferenceTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LocalInferenceTest";
+			};
+			name = Release;
+		};
 		778E8DCC2F0570C800D11D85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -401,53 +443,18 @@
 			};
 			name = Release;
 		};
-		778E8DD22F0570C800D11D85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5K5WXXWFJB;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ivangalkindev.LocalInferenceTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalInferenceTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LocalInferenceTest";
-			};
-			name = Debug;
-		};
-		778E8DD32F0570C800D11D85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5K5WXXWFJB;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ivangalkindev.LocalInferenceTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalInferenceTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LocalInferenceTest";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		771E76EF2F0867CC00D8EB3A /* Build configuration list for PBXNativeTarget "LocalInferenceTestXCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771E76F02F0867CC00D8EB3A /* Debug */,
+				771E76F12F0867CC00D8EB3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		778E8DA82F0570C700D11D85 /* Build configuration list for PBXProject "LocalInferenceTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -462,15 +469,6 @@
 			buildConfigurations = (
 				778E8DCF2F0570C800D11D85 /* Debug */,
 				778E8DD02F0570C800D11D85 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		778E8DD12F0570C800D11D85 /* Build configuration list for PBXNativeTarget "LocalInferenceTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				778E8DD22F0570C800D11D85 /* Debug */,
-				778E8DD32F0570C800D11D85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

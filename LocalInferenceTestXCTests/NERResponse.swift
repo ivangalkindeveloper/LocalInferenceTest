@@ -9,7 +9,7 @@ struct NERResponse: Decodable {
         
         @available(iOS 26.0, *)
         static func fromFoudationModels(
-            _ response: LocalInferenceTestFoudationModels.Gender?
+            _ response: LocalInferenceFoudationModels.Gender?
         ) -> Self? {
             switch response {
             case .male:
@@ -34,7 +34,7 @@ struct NERResponse: Decodable {
     
     @available(iOS 26.0, *)
     static func fromFoudationModels(
-        _ response: LocalInferenceTestFoudationModels.Response
+        _ response: LocalInferenceFoudationModels.Response
     ) -> Self {
         NERResponse(
             patientName: response.patientName,
