@@ -106,9 +106,7 @@ final class LocalInferenceTestMLX: LocalInferenceTestProtocol {
             """,
         )
 
-        let response = try await session.respond(
-            to: Prompt.nerSpeech,
-        )
+        let response = try await session.respond(to: speech,)
         
         let data = Data(response.utf8)
         let decoded = try JSONDecoder().decode(NERResponse.self, from: data)
