@@ -1,8 +1,6 @@
-
 import Foundation
 
 struct NERResponse: Decodable {
-    
     enum Gender: Decodable {
         case male
         case female
@@ -20,7 +18,6 @@ struct NERResponse: Decodable {
                 return nil
             }
         }
-        
     }
 
     let patientName: String?
@@ -47,5 +44,4 @@ struct NERResponse: Decodable {
             additionalData: response.additionalData
         )
     }
-    
 }

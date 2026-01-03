@@ -1,14 +1,7 @@
-//
-//  LocalInferenceXCTests.swift
-//  LocalInferenceXCTests
-//
-//  Created by Иван Галкин on 02.01.2026.
-//
-
 import XCTest
 @testable import LocalInferenceTest
 
-final class LocalInferenceNETTest: XCTestCase {
+final class LocalInferenceNERTest: XCTestCase {
     
     func test() async throws {
         try await nerFoundationModels()
@@ -47,8 +40,17 @@ final class LocalInferenceNETTest: XCTestCase {
     }
     
     func nerFoundationModels() async throws {
-        let foundationModels = LocalInferenceFoudationModels()
-        let response = try await foundationModels.ner(speech: Prompt.nerSpeech)
+        let model = LocalInferenceFoudationModels()
+        let response = try await Performer.run(
+            "FoundationModels",
+            "NER",
+            {
+                try await model.NER(speech: Prompt.nerSpeech)
+            },
+            { response in
+                "\(response)"
+            }
+        )
         try assertNER(response)
     }
     
@@ -56,7 +58,16 @@ final class LocalInferenceNETTest: XCTestCase {
         _ modelId: String,
     ) async throws -> Void {
         let model = try await LocalInferenceMLX(modelId: modelId)
-        let response = try await model.ner(speech: Prompt.nerSpeech)
+        let response = try await Performer.run(
+            modelId,
+            "NER",
+            {
+                try await model.NER(speech: Prompt.nerSpeech)
+            },
+            { response in
+                "\(response)"
+            }
+        )
         try assertNER(response)
     }
 

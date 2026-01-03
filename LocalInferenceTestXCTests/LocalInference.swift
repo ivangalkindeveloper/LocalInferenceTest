@@ -1,22 +1,28 @@
 import Foundation
 import FoundationModels
-import MLXLMCommon
 import MLX
+import MLXLMCommon
 
 protocol LocalInferenceProtocol {
+    func prepareRespond()
+    
     func respond(
         prompt: String
     ) async throws -> String
     
-    func ner(
+    func prepareNER()
+    
+    func NER(
         speech: String
     ) async throws -> NERResponse
 }
 
-
 // MARK: FoundationModels -
+
 @available(iOS 26.0, *)
 final class LocalInferenceFoudationModels: LocalInferenceProtocol {
+    private var session = LanguageModelSession()
+    
     @FoundationModels.Generable
     struct Response {
         @FoundationModels.Guide(description: "")
@@ -43,44 +49,28 @@ final class LocalInferenceFoudationModels: LocalInferenceProtocol {
         case female
     }
     
-    func respond(
-        prompt: String
-    ) async throws -> String {
-        let session = LanguageModelSession()
-        
-        let response = try await Performer().run(
-            "FoundationModels",
-            "Respond",
-            {
-               try await session.respond(to: prompt)
-            },
-            {
-                $0.content
-            }
-        )
-        
-        return response.content
+    func prepareRespond() {
+        session = LanguageModelSession()
     }
     
-    func ner(
-        speech: String
-    ) async throws -> NERResponse {
-        let session = LanguageModelSession(
+    func respond(
+        prompt: String,
+    ) async throws -> String {
+        try await session.respond(to: prompt).content
+    }
+    
+    func prepareNER() {
+        session = LanguageModelSession(
             instructions: NERConfig.role
         )
-        
-        let response = try await Performer().run(
-            "FoundationModels",
-            "NER",
-            {
-               try await session.respond(
-                   to: speech,
-                   generating: Response.self
-               )
-            },
-            {
-                "\($0.content)"
-            }
+    }
+    
+    func NER(
+        speech: String
+    ) async throws -> NERResponse {
+        let response = try await session.respond(
+            to: speech,
+            generating: Response.self
         )
         
         return NERResponse.fromFoudationModels(
@@ -89,46 +79,35 @@ final class LocalInferenceFoudationModels: LocalInferenceProtocol {
     }
 }
 
-
 // MARK: MLX -
+
 final class LocalInferenceMLX: LocalInferenceProtocol {
-    let modelId: String
-    let model: MLXLMCommon.ModelContext
+    private let modelId: String
+    private let model: MLXLMCommon.ModelContext
+    private var session: MLXLMCommon.ChatSession
     
     init(
         modelId: String
     ) async throws {
         self.modelId = modelId
-        self.model = try await MLXLMCommon.loadModel(
-            id: modelId
-        )
+        print("LocalInferenceMLX - START LOADING \(modelId)")
+        self.model = try await MLXLMCommon.loadModel(id: modelId)
+        print("LocalInferenceMLX - COMPLETE LOADING \(modelId)")
+        self.session = MLXLMCommon.ChatSession(model)
+    }
+    
+    func prepareRespond() {
+        session = MLXLMCommon.ChatSession(model)
     }
     
     func respond(
         prompt: String
     ) async throws -> String {
-        let session = MLXLMCommon.ChatSession(model)
-        
-        let response = try await Performer().run(
-            modelId,
-            "Respond",
-            {
-                try await session.respond(to: prompt)
-            },
-            {
-                $0
-            }
-        )
-        
-        session.clear()
-        
-        return response
+        try await session.respond(to: prompt)
     }
     
-    func ner(
-        speech: String
-    ) async throws -> NERResponse {
-        let session = MLXLMCommon.ChatSession(
+    func prepareNER() {
+        session = MLXLMCommon.ChatSession(
             model,
             instructions: """
             \(NERConfig.role)
@@ -136,22 +115,18 @@ final class LocalInferenceMLX: LocalInferenceProtocol {
             \(NERConfig.jsonFormat)
             """,
         )
-        
-        let response = try await Performer().run(
-            modelId,
-            "NER",
-            {
-                try await session.respond(to: speech)
-            },
-            {
-                $0
-            }
-        )
-        
-        session.clear()
-        
+    }
+    
+    func NER(
+        speech: String
+    ) async throws -> NERResponse {
+        let response = try await session.respond(to: speech)
         let data = Data(response.utf8)
         let decoded = try JSONDecoder().decode(NERResponse.self, from: data)
         return decoded
+    }
+    
+    func clear() {
+        session.clear()
     }
 }
