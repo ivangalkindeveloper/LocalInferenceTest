@@ -24,19 +24,21 @@ final class LocalInferenceRespondTest: XCTestCase {
     }
     
     func respondFoundationModels() async throws {
-        let model = LocalInferenceFoudationModels()
-        model.prepareRespond()
-        let response = try await Performer.run(
-            "FoundationModels",
-            "Respond",
-            {
-                try await model.respond(prompt: Prompt.respond)
-            },
-            { response in
-                response
-            }
-        )
-        XCTAssert(response.isEmpty == false)
+        if #available(iOS 26.0, *) {
+            let model = LocalInferenceFoudationModels()
+            model.prepareRespond()
+            let response = try await Performer.run(
+                "FoundationModels",
+                "Respond",
+                {
+                    try await model.respond(prompt: Prompt.respond)
+                },
+                { response in
+                    response
+                }
+            )
+            XCTAssert(response.isEmpty == false)
+        }
     }
     
     func respondMLX(

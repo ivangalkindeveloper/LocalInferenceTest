@@ -40,18 +40,20 @@ final class LocalInferenceNERTest: XCTestCase {
     }
     
     func nerFoundationModels() async throws {
-        let model = LocalInferenceFoudationModels()
-        let response = try await Performer.run(
-            "FoundationModels",
-            "NER",
-            {
-                try await model.NER(speech: Prompt.nerSpeech)
-            },
-            { response in
-                "\(response)"
-            }
-        )
-        try assertNER(response)
+        if #available(iOS 26.0, *) {
+            let model = LocalInferenceFoudationModels()
+            let response = try await Performer.run(
+                "FoundationModels",
+                "NER",
+                {
+                    try await model.NER(speech: Prompt.nerSpeech)
+                },
+                { response in
+                    "\(response)"
+                }
+            )
+            try assertNER(response)
+        }
     }
     
     func nerMLX(
