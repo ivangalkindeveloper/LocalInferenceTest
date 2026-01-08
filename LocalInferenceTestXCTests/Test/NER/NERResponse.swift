@@ -1,7 +1,7 @@
 import Foundation
 
-struct NERResponse: Decodable {
-    enum Gender: Decodable {
+struct NERResponse: Codable {
+    enum Gender: String, Codable {
         case male
         case female
         
@@ -23,8 +23,8 @@ struct NERResponse: Decodable {
     let patientName: String?
     let patientGender: Gender?
     let patientDateOfBirth: Date?
-    let patientHeight: Double?
-    let patientWeight: Double?
+    let patientHeightCM: Double?
+    let patientWeightKG: Double?
     let patientComplaint: String?
     let researchDescription: String?
     let additionalData: String?
@@ -35,10 +35,14 @@ struct NERResponse: Decodable {
     ) -> Self {
         NERResponse(
             patientName: response.patientName,
-            patientGender: Gender.fromFoudationModels(response.patientGender),
-            patientDateOfBirth: DateFormatter().date(from: response.patientDateOfBirth ?? ""),
-            patientHeight: response.patientHeight,
-            patientWeight: response.patientWeight,
+            patientGender: Gender.fromFoudationModels(
+                response.patientGender
+            ),
+            patientDateOfBirth: NERConfig.dateFormatter.date(
+                from: response.patientDateOfBirth ?? ""
+            ),
+            patientHeightCM: response.patientHeightCM,
+            patientWeightKG: response.patientWeightKG,
             patientComplaint: response.patientComplaint,
             researchDescription: response.researchDescription,
             additionalData: response.additionalData

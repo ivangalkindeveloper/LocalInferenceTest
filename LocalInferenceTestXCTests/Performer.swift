@@ -24,10 +24,10 @@ enum Performer {
         print("""
             
             ====== \(modelId) - \(type) ======
-            ====== Wall: \(String(format: "%.1f", wallMs)) ms
-            ====== CPU:  \(String(format: "%.1f", cpuMs)) ms
-            ====== RSS:  \(mem1 >= 0 ? String(format: "%.1f", mem1) : "n/a") MB\(memDiff != nil ? " (Δ \(String(format: "%.1f", memDiff!)) MB)" : "")
-            ====== Response:
+            Wall: \(String(format: "%.1f", wallMs)) ms
+            CPU:  \(String(format: "%.1f", cpuMs)) ms
+            RSS:  \(mem1 >= 0 ? String(format: "%.1f", mem1) : "n/a") MB\(memDiff != nil ? " (Δ \(String(format: "%.1f", memDiff!)) MB)" : "")
+            Response:
                 \(printable(response))
             ======
                 

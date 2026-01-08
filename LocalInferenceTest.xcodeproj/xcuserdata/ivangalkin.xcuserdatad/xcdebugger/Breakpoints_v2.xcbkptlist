@@ -36,5 +36,111 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD12F200-16F7-4EED-AF9E-D71DE8FE26FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LocalInferenceTestXCTests/LocalInference.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "NER(speech:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "614D8690-0509-474A-B512-863965460DAF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "NER(speech:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F968BEF4-1152-47DE-8C8E-677B9669FB19"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "respond(prompt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F968BEF4-1152-47DE-8C8E-677B9669FB19 - a84d06f27347d5c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for LocalInferenceTestXCTests.LocalInferenceMLX.respond(prompt: Swift.String) async throws -&gt; Swift.String"
+                  moduleName = "LocalInferenceTestXCTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivangalkin/Development/My%20projects/swift/LocalInferenceTest/LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F968BEF4-1152-47DE-8C8E-677B9669FB19 - c8450a13cb9988cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for LocalInferenceTestXCTests.LocalInferenceMLX.respond(prompt: Swift.String) async throws -&gt; Swift.String"
+                  moduleName = "LocalInferenceTestXCTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivangalkin/Development/My%20projects/swift/LocalInferenceTest/LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F968BEF4-1152-47DE-8C8E-677B9669FB19 - 19ed55d4a7f11c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for LocalInferenceTestXCTests.LocalInferenceMLX.respond(prompt: Swift.String) async throws -&gt; Swift.String"
+                  moduleName = "LocalInferenceTestXCTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivangalkin/Development/My%20projects/swift/LocalInferenceTest/LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F968BEF4-1152-47DE-8C8E-677B9669FB19 - 3547baf6c10cefc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for LocalInferenceTestXCTests.LocalInferenceMLX.respond(prompt: Swift.String) async throws -&gt; Swift.String"
+                  moduleName = "LocalInferenceTestXCTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivangalkin/Development/My%20projects/swift/LocalInferenceTest/LocalInferenceTestXCTests/LocalInference/LocalInferenceMLX.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
